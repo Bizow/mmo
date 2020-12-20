@@ -1,0 +1,29 @@
+<head>
+  <title>rts-meteor</title>
+</head>
+
+<body>
+  {{> main}}
+</body>
+
+<template name="main">
+  <button style="margin: 0 0 20px 0" data-remove-players>Remove Players</button>
+    <br>
+    Players
+    {{#each players}}
+        {{> collapsible label=this._id content=toJSON}}
+    {{/each}}
+    Enemies
+    {{#each enemies}}
+        {{> collapsible label=this._id content=toJSON}}
+    {{/each}}
+</template>
+
+<template name="collapsible">
+    <button type="button" class="collapsible {{active}}">{{label}}</button>
+    <div class="content {{active}}">
+        <pre>{{content}}</pre>
+    </div>
+</template>
+
+
