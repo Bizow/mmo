@@ -1,29 +1,53 @@
 <head>
-  <title>rts-meteor</title>
+    <title>rts-meteor</title>
 </head>
 
 <body>
-  {{> main}}
+    {{> main}}
 </body>
 
 <template name="main">
-  <button style="margin: 0 0 20px 0" data-remove-players>Remove Players</button>
-    <br>
-    Players
-    {{#each players}}
-        {{> collapsible label=this._id content=toJSON}}
-    {{/each}}
-    Enemies
-    {{#each enemies}}
-        {{> collapsible label=this._id content=toJSON}}
-    {{/each}}
+    <div style="display: flex; flex-direction: column;">
+        <div>
+            <button style="margin: 0 0 20px 0" data-remove-players>Remove Players</button>
+        </div>
+        <div>
+            {{> sunControl}}
+        </div>
+        <div>
+            Players
+            {{#each players}}
+                {{> collapsible label=this._id content=toJSON}}
+            {{/each}}
+        </div>
+        <div>
+            Assets
+            {{#each assets}}
+                {{> collapsible label=this._id content=toJSON remove="data-remove-asset"}}
+            {{/each}}
+        </div>
+        <div>
+            Enemies
+            {{#each enemies}}
+                {{> collapsible label=this._id content=toJSON remove="data-remove-enemy"}}
+            {{/each}}
+        </div>
+    </div>
+</template>
+
+<template name="sunControl">
+    <div>
+        {{#with worldSettings}}
+            <input type="range" min="-10" max="190" value="{{sun.xRotation}}" class="slider"> {{sun.xRotation}}
+        {{/with}}
+    </div>
 </template>
 
 <template name="collapsible">
     <button type="button" class="collapsible {{active}}">{{label}}</button>
     <div class="content {{active}}">
+        {{#if remove}}
+            <button {{remove}}>X</button>{{/if}}
         <pre>{{content}}</pre>
     </div>
 </template>
-
-

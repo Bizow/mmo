@@ -1,0 +1,1 @@
+export const actions = new Mongo.Collection('actions');

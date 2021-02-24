@@ -2,6 +2,21 @@
  * http://meteor-up.com/docs.html
  * mup deploy --settings=../settings.json
  * ssh root@167.172.152.55
+ *
+ * https://forum.unity.com/threads/linux-il2cpp-cross-compiler-packages-now-available-in-preview.975693/
+ * Linux: com.unity.toolchain.linux-x86_64@0.1.13-preview
+ * macOS: com.unity.toolchain.macos-x86_64-linux-x86_64@0.1.15-preview
+ * Windows: com.unity.toolchain.win-x86_64-linux-x86_64@0.1.14-preview
+ * scp ~/Desktop/mmoserver.zip root@167.172.152.55:/
+ * scp ~/Desktop/DotsServer.zip root@167.172.152.55:/
+ * unzip DotsSampleServer.zip
+ * chmod +x ./DotsLinuxServer.x86_64
+ * chmod +x ./mmoserver.x86_64
+ *
+ * ./mmoserver.x86_64 -batchmode -nographics &
+ * ./DotsLinuxServer.x86_64
+ * ps -A
+ * kill 14291
  * docker exec -it mongodb mongo rts
  * Unsupported key format: ssh-keygen -p -m PEM -f ~/.ssh/id_rsa
  */

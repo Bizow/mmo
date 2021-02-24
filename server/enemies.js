@@ -5,6 +5,10 @@ Meteor.publish('enemies', function () {
   return enemies.find({connectionId : {$ne: ""}});
 });
 
+Meteor.publish('allEnemies', function () {
+  return enemies.find({});
+});
+
 enemies.find().observe({
   removed(doc){
     // tbd
