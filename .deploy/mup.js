@@ -19,11 +19,11 @@
  * kill 14291
  * docker exec -it mongodb mongo rts
  * Unsupported key format: ssh-keygen -p -m PEM -f ~/.ssh/id_rsa
+ *
  */
 module.exports = {
   servers: {
     one: {
-      // TODO: set host address, username, and authentication method
       host: '167.172.152.55',
       username: 'root',
       pem: '~/.ssh/id_rsa'
